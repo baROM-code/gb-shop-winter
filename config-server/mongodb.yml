@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo
+    container_name: gb-mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - gdata:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=geek
+      - MONGO_INITDB_ROOT_PASSWORD=geek
+  mongo-express:
+    image: mongo-express
+    container_name: gb-mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=geek
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=geek
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+
+volumes:
+  gdata:
+
+networks:
+  default:
+    name: gb_mongodb_network
+
+
