@@ -21,6 +21,13 @@ public class GbShopWinterApplication {
             // todo ДЗ сохранить категорию
             // todo ДЗ сохранить производителя
             // todo потом закомментировать этот блок
+
+            //            categoryService.save(CategoryDto.builder()
+            //                    .title("AllInOne")
+            //                    .build());
+            //            manufacturerService.save(ManufacturerDto.builder()
+            //                    .name("Asus")
+            //                    .build());
         };
     }
 }

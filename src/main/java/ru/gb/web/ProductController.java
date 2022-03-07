@@ -12,6 +12,7 @@ import ru.gb.dao.ProductImageDao;
 import ru.gb.dao.security.AccountUserDao;
 import ru.gb.entity.Product;
 import ru.gb.entity.security.AccountUser;
+import ru.gb.exceptions.ProductImageNotFoundException;
 import ru.gb.service.CategoryService;
 import ru.gb.service.ManufacturerService;
 import ru.gb.service.ProductImageService;
@@ -91,7 +92,8 @@ public class ProductController {
             ImageIO.write(productImageService.loadFileAsResource(id), "png", byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } catch (IOException e) {
-            throw e; // todo ДЗ - заменить на ProductImageNotFoundException
+            throw new ProductImageNotFoundException(productImageService.getImageNameByProductId(id));
+            // todo ДЗ - заменить на ProductImageNotFoundException
         }
     }
 

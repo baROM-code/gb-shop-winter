@@ -5,10 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import ru.gb.dao.ProductImageDao;
+import ru.gb.exceptions.ProductImageNotFoundException;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @Slf4j
@@ -26,7 +26,11 @@ public class ProductImageService {
         } else {
             log.error("Image with name {} not found!", imageName);
             // todo ДЗ - сделать наслденика FileNotFoundException -> ProductImageNotFoundException
-            throw new FileNotFoundException("File " + imageName + " not found");
+            throw new ProductImageNotFoundException(imageName);
         }
+    }
+
+    public String getImageNameByProductId(Long id) {
+        return productImageDao.findImageNameByProductId(id);
     }
 }
