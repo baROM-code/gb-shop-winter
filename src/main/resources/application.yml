@@ -14,3 +14,14 @@ spring:
       password: ${SPRING_CLOUD_CONFIG_PASSWORD:geek_pass}
   zipkin:
     enabled: false
+  mail:
+    host: 'smtp.gmail.com'
+    port: 587
+    username: 'smarttest.gg@gmail.com'
+    password: 'smart333ggll'
+    properties:
+      mail:
+        smtp:
+          auth: 'true'
+          starttls:
+            enable: 'true'

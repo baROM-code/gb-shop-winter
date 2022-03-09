@@ -17,7 +17,9 @@
 <div class="container">
     <h2 th:text="'Пользователь ' + ${username} +  ' успешно  зарегестирован!'"></h2>
     <hr>
-    <p>Для входа перейдите по <a th:href="@{/auth/login}">ссылке</a></p>
+    <p>Для входа введите код из письма:</p>
+    <input type="password" th:value="${incode}" name="incode">
+    <button type="submit" class="btn btn-primary">Подтвердить</button>
 </div>
 <div th:replace="~{common/footer :: footerBlock}"/>
 </body>
